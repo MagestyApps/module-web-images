@@ -33,7 +33,14 @@
     <type name="Magento\Cms\Controller\Adminhtml\Wysiwyg\Images\Thumbnail">
         <plugin name="allow-svg" type="MagestyApps\WebImages\Plugin\Controller\Adminhtml\Wysiwyg\Images\ThumbnailPlugin" />
     </type>
-    <type name="Magento\Cms\Controller\Adminhtml\Wysiwyg\Directive">
-        <plugin name="allow-svg" type="MagestyApps\WebImages\Plugin\Controller\Adminhtml\Wysiwyg\DirectivePlugin" />
+
+    <type name="Magento\Theme\Model\Design\Backend\Logo">
+        <plugin name="allow-svg" type="MagestyApps\WebImages\Plugin\Design\Backend\LogoPlugin" />
+    </type>
+    <type name="Magento\Theme\Model\Design\Backend\Favicon">
+        <plugin name="allow-svg" type="MagestyApps\WebImages\Plugin\Design\Backend\FaviconPlugin" />
+    </type>
+    <type name="Magento\Theme\Model\Design\Backend\Image">
+        <plugin name="allow-svg" type="MagestyApps\WebImages\Plugin\Design\Backend\ImagePlugin" />
     </type>
 </config>

@@ -1,26 +1,29 @@
 <?xml version="1.0"?>
-<!--
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
+
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
         <arguments>
             <argument name="extensions" xsi:type="array">
                 <item name="allowed" xsi:type="array">
-                    <item name="svg" xsi:type="string">image/svg+xml</item>
+                    <item name="svg" xsi:type="string">image/svg</item>
                 </item>
                 <item name="image_allowed" xsi:type="array">
-                    <item name="svg" xsi:type="string">image/svg+xml</item>
+                    <item name="svg" xsi:type="string">image/svg</item>
                 </item>
-<!--                <item name="media_allowed" xsi:type="array">-->
-<!--                    <item name="flv" xsi:type="string">video/x-flv</item>-->
-<!--                </item>-->
             </argument>
         </arguments>
     </type>
+    <virtualType name="Magento\Catalog\CategoryImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="svg" xsi:type="string">svg</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="svg" xsi:type="string">image/svg</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
     <type name="Magento\MediaStorage\Model\File\Validator\NotProtectedExtension">
         <plugin name="allow-svg" type="MagestyApps\WebImages\Plugin\File\Validator\NotProtectedExtensionPlugin" />
     </type>

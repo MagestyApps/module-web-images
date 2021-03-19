@@ -5,4 +5,21 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
 * wysiwyg editor on product edit page
 * theme logo and favicon
 
+
 **IMPORTANT:** *if you need to upload any other image format or you need to upload it in any other Magento 2 area - please just drop us a line at [alex@magestyapps.com](mailto:alex@magestyapps.com?subject=Extend%20MagestyApps_WebImages%20extension) and will update the extension*
+
+## Manual Installation
+1) Go to your Magento root folder and create a new folder:
+
+    ```
+    app/code/MagestyApps/AdvancedBreadcrumbs
+    ```
+
+2) Copy extension files to the folder
+
+3) Run setup script:
+    ```
+    php bin/magento setup:upgrade;
+    php bin/magento setup:di:compile;
+    php bin/magento setup:static-content:deploy -f; 
+```

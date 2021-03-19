@@ -10,16 +10,17 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
 
 ## Manual Installation
 1) Go to your Magento root folder and create a new folder:
-
+    
     ```
     app/code/MagestyApps/AdvancedBreadcrumbs
     ```
-
+   
 2) Copy extension files to the folder
 
 3) Run setup script:
+
     ```
     php bin/magento setup:upgrade;
     php bin/magento setup:di:compile;
-    php bin/magento setup:static-content:deploy -f; 
-```
+    php bin/magento setup:static-content:deploy -f;
+    ```

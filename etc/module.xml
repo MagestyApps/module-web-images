@@ -1,6 +1,10 @@
-
 <?xml version="1.0"?>
-
+<!--
+/**
+ * Copyright © 2021 MagestyApps. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="MagestyApps_WebImages" setup_version="1.0.0" />
 </config>

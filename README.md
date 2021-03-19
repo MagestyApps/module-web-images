@@ -6,7 +6,7 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
 * theme logo and favicon
 
 
-**IMPORTANT:** *if you need to upload any other image format or you need to upload it in any other Magento 2 area - please just drop us a line at [alex@magestyapps.com](mailto:alex@magestyapps.com?subject=Extend%20MagestyApps_WebImages%20extension) and will update the extension*
+**IMPORTANT:** *if you need to upload any other image format or you need to upload it in any other Magento 2 area - please just drop us a line at [alex@magestyapps.com](mailto:alex@magestyapps.com?subject=Extend%20MagestyApps_WebImages%20extension) and we will update the extension*
 
 ## Installation
 
@@ -24,7 +24,7 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
     php bin/magento setup:static-content:deploy -f;
     ```
    
-### Manual Installation
+### Manually
 1) Go to your Magento root folder and create a new folder:
     
     ```

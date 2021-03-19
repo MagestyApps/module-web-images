@@ -17,7 +17,7 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
    
 2) Copy extension files to the folder
 
-3) Run setup script:
+3) Run setup commands:
 
     ```
     php bin/magento setup:upgrade;

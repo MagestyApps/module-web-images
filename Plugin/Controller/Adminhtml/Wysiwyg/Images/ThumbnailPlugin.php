@@ -1,10 +1,16 @@
 <?php
+/**
+ * Copyright © 2021 MagestyApps. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 
 namespace MagestyApps\WebImages\Plugin\Controller\Adminhtml\Wysiwyg\Images;
 
 use Magento\Cms\Controller\Adminhtml\Wysiwyg\Images\Thumbnail;
 use Magento\Cms\Helper\Wysiwyg\Images;
+use Magento\Framework\Controller\Result\Raw;
 use Magento\Framework\Controller\Result\RawFactory;
+use Magento\Framework\Exception\LocalizedException;
 use MagestyApps\WebImages\Helper\ImageHelper;
 
 class ThumbnailPlugin
@@ -40,19 +46,31 @@ class ThumbnailPlugin
         $this->imageHelper = $imageHelper;
     }
 
+    /**
+     * Handle vector images for media storage thumbnails
+     *
+     * @param Thumbnail $subject
+     * @param callable $proceed
+     * @return Raw
+     */
     public function aroundExecute(Thumbnail $subject, callable $proceed)
     {
-        $file = $subject->getRequest()->getParam('file');
-        $file = $this->wysiwygImages->idDecode($file);
-        $thumb = $subject->getStorage()->resizeOnTheFly($file);
+        try {
+            $file = $subject->getRequest()->getParam('file');
+            $file = $this->wysiwygImages->idDecode($file);
+            $thumb = $subject->getStorage()->resizeOnTheFly($file);
 
-        if ($this->imageHelper->isVectorImage($thumb)) {
+            if (!$this->imageHelper->isVectorImage($thumb)) {
+                throw new LocalizedException(__('This is not a vector image'));
+            }
+
+            /** @var Raw $resultRaw */
             $resultRaw = $this->resultRawFactory->create();
             $resultRaw->setHeader('Content-Type', 'image/svg+xml');
             $resultRaw->setContents(file_get_contents($thumb));
 
             return $resultRaw;
-        } else {
+        } catch (\Exception $e) {
             return $proceed();
         }
     }

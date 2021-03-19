@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2021 MagestyApps. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 
 namespace MagestyApps\WebImages\Plugin\Wysiwyg\Images;
 
@@ -22,6 +26,15 @@ class StoragePlugin
         $this->imageHelper = $imageHelper;
     }
 
+    /**
+     * Skip resizing vector images
+     *
+     * @param Storage $storage
+     * @param callable $proceed
+     * @param $source
+     * @param bool $keepRatio
+     * @return mixed
+     */
     public function aroundResizeFile(Storage $storage, callable $proceed, $source, $keepRatio = true)
     {
         if ($this->imageHelper->isVectorImage($source)) {

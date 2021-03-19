@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2021 MagestyApps. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 
 namespace MagestyApps\WebImages\Plugin\Controller\Adminhtml\Wysiwyg;
 
@@ -6,7 +10,7 @@ use Magento\Cms\Controller\Adminhtml\Wysiwyg\Directive;
 use Magento\Cms\Model\Template\Filter;
 use Magento\Framework\Controller\Result\Raw;
 use Magento\Framework\Controller\Result\RawFactory;
-use Magento\Framework\Image\Adapter\AdapterInterface;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Url\DecoderInterface;use MagestyApps\WebImages\Helper\ImageHelper;
 
 class DirectivePlugin
@@ -50,23 +54,30 @@ class DirectivePlugin
         $this->imageHelper = $imageHelper;
     }
 
+    /**
+     * Handle vector images for media storage thumbnails
+     *
+     * @param Directive $subject
+     * @param callable $proceed
+     * @return Raw
+     */
     public function aroundExecute(Directive $subject, callable $proceed)
     {
-        $directive = $subject->getRequest()->getParam('___directive');
-        $directive = $this->urlDecoder->decode($directive);
-
         try {
+            $directive = $subject->getRequest()->getParam('___directive');
+            $directive = $this->urlDecoder->decode($directive);
             $imagePath = $this->filter->filter($directive);
 
-            if ($this->imageHelper->isVectorImage($imagePath)) {
-                $resultRaw = $this->resultRawFactory->create();
-                $resultRaw->setHeader('Content-Type', 'image/svg+xml');
-                $resultRaw->setContents(file_get_contents($imagePath));
-
-                return $resultRaw;
+            if (!$this->imageHelper->isVectorImage($imagePath)) {
+                throw new LocalizedException(__('This is not a vector image'));
             }
 
-            return $proceed();
+            /** @var Raw $resultRaw */
+            $resultRaw = $this->resultRawFactory->create();
+            $resultRaw->setHeader('Content-Type', 'image/svg+xml');
+            $resultRaw->setContents(file_get_contents($imagePath));
+
+            return $resultRaw;
         } catch (\Exception $e) {
             return $proceed();
         }

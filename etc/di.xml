@@ -10,10 +10,10 @@
         <arguments>
             <argument name="extensions" xsi:type="array">
                 <item name="allowed" xsi:type="array">
-                    <item name="svg" xsi:type="string">image/svg</item>
+                    <item name="svg" xsi:type="string">image/svg+xml</item>
                 </item>
                 <item name="image_allowed" xsi:type="array">
-                    <item name="svg" xsi:type="string">image/svg</item>
+                    <item name="svg" xsi:type="string">image/svg+xml</item>
                 </item>
             </argument>
         </arguments>
@@ -21,10 +21,10 @@
     <virtualType name="Magento\Catalog\CategoryImageUpload" type="Magento\Catalog\Model\ImageUploader">
         <arguments>
             <argument name="allowedExtensions" xsi:type="array">
-                <item name="svg" xsi:type="string">svg</item>
+                <item name="svg" xsi:type="string">image/svg+xml</item>
             </argument>
             <argument name="allowedMimeTypes" xsi:type="array">
-                <item name="svg" xsi:type="string">image/svg</item>
+                <item name="svg" xsi:type="string">image/svg+xml</item>
             </argument>
         </arguments>
     </virtualType>

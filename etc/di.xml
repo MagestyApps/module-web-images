@@ -11,9 +11,11 @@
             <argument name="extensions" xsi:type="array">
                 <item name="allowed" xsi:type="array">
                     <item name="svg" xsi:type="string">image/svg</item>
+                    <item name="svg-xml" xsi:type="string">image/svg+xml</item>
                 </item>
                 <item name="image_allowed" xsi:type="array">
                     <item name="svg" xsi:type="string">image/svg</item>
+                    <item name="svg-xml" xsi:type="string">image/svg+xml</item>
                 </item>
             </argument>
         </arguments>
@@ -25,6 +27,7 @@
             </argument>
             <argument name="allowedMimeTypes" xsi:type="array">
                 <item name="svg" xsi:type="string">image/svg</item>
+                <item name="svg-xml" xsi:type="string">image/svg+xml</item>
             </argument>
         </arguments>
     </virtualType>

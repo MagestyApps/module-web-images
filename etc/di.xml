@@ -54,4 +54,10 @@
     <type name="Magento\Theme\Model\Design\Backend\Image">
         <plugin name="allow-svg" type="MagestyApps\WebImages\Plugin\Design\Backend\ImagePlugin" />
     </type>
+
+    <type name="Magento\MediaGallerySynchronization\Model\CreateAssetFromFile">
+        <arguments>
+            <argument name="assetFactory" xsi:type="object">MagestyApps\WebImages\Model\AssetFactory</argument>
+        </arguments>
+    </type>
 </config>

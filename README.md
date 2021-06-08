@@ -25,14 +25,18 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
     ```
    
 ### Manually
-1) Go to your Magento root folder and create a new folder:
+1) Go to your Magento root folder:
     
     ```
-    app/code/MagestyApps/WebImages
+    cd <magento_root>
     ```
    
-2) Copy extension files to the folder
-
+2) Copy extension files to *app/code/MagestyApps/WebImages* folder:
+    ```
+    git clone https://github.com/MagestyApps/module-web-images.git app/code/MagestyApps/WebImages
+    ```
+    ***NOTE:*** *alternatively, you can manually create the folder and copy the extension files there.*
+    
 3) Run setup commands:
 
     ```

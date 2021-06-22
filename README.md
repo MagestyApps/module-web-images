@@ -8,6 +8,8 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
 
 **IMPORTANT:** *if you need to upload any other image format or you need to upload it in any other Magento 2 area - please just drop us a line at [alex@magestyapps.com](mailto:alex@magestyapps.com?subject=Extend%20MagestyApps_WebImages%20extension) and we will update the extension*
 
+**IMPORTANT:** *if you like the extension, could you please add a star to this GitHub repository in the top right corner. This is really important for us. Thanks.*
+
 ## Installation
 
 ### Using Composer (recommended)
@@ -43,4 +45,7 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
     php bin/magento setup:upgrade;
     php bin/magento setup:di:compile;
     php bin/magento setup:static-content:deploy -f;
+    
+## Other Extensions
+You can find more useful extensions for Magento 2 by visiting [MagestyApps Official Website](https://www.magestyapps.com/)
     ```

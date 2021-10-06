@@ -26,7 +26,7 @@
         <arguments>
             <argument name="allowedExtensions" xsi:type="array">
                 <item name="svg" xsi:type="string">svg</item>
-                <item name="webp" xsi:type="string">image/webp</item>
+                <item name="webp" xsi:type="string">webp</item>
             </argument>
             <argument name="allowedMimeTypes" xsi:type="array">
                 <item name="svg" xsi:type="string">image/svg</item>

@@ -36,6 +36,7 @@
         </arguments>
     </virtualType>
 
+    <preference for="Magento\MediaStorage\App\Media" type="MagestyApps\WebImages\App\MediaRewrite" />
     <type name="Magento\MediaStorage\Model\File\Uploader">
         <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\File\UploaderPlugin" />
     </type>

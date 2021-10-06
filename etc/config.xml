@@ -14,5 +14,14 @@
                 </vector>
             </extensions>
         </magestyapps_webimages>
+        <dev>
+            <image>
+                <adapters>
+                    <GD2>
+                        <class>MagestyApps\WebImages\Model\Image\Adapter\Gd2Rewrite</class>
+                    </GD2>
+                </adapters>
+            </image>
+        </dev>
     </default>
 </config>

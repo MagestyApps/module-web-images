@@ -35,7 +35,11 @@ class ImagePlugin
      */
     public function afterGetAllowedExtensions(Image $subject, $extensions)
     {
-        $extensions = array_merge($extensions, $this->imageHelper->getVectorExtensions());
+        $extensions = array_merge(
+            $extensions,
+            array_values($this->imageHelper->getVectorExtensions()),
+            array_values($this->imageHelper->getWebImageExtensions())
+        );
 
         return $extensions;
     }

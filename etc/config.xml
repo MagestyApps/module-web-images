@@ -12,6 +12,9 @@
                 <vector>
                     <svg>svg</svg>
                 </vector>
+                <web_image>
+                    <webp>webp</webp>
+                </web_image>
             </extensions>
         </magestyapps_webimages>
         <dev>

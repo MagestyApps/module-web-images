@@ -36,6 +36,9 @@
         </arguments>
     </virtualType>
 
+    <type name="Magento\MediaStorage\Model\File\Uploader">
+        <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\File\UploaderPlugin" />
+    </type>
     <type name="Magento\MediaStorage\Model\File\Validator\NotProtectedExtension">
         <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\File\Validator\NotProtectedExtensionPlugin" />
     </type>

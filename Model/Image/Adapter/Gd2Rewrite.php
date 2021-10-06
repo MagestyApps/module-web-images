@@ -5,6 +5,7 @@ namespace MagestyApps\WebImages\Model\Image\Adapter;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Image\Adapter\Gd2;
 use Magento\Framework\Phrase;
+use MagestyApps\WebImages\Helper\ImageHelper;
 
 class Gd2Rewrite extends Gd2
 {
@@ -16,6 +17,28 @@ class Gd2Rewrite extends Gd2
     private static $_callbacks = [
         IMAGETYPE_WEBP => ['output' => 'imagewebp', 'create' => 'imagecreatefromwebp'],
     ];
+
+    /**
+     * @var ImageHelper
+     */
+    private $helper;
+
+    /**
+     * Gd2Rewrite constructor.
+     * @param \Magento\Framework\Filesystem $filesystem
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param ImageHelper $helper
+     * @param array $data
+     */
+    public function __construct(
+        \Magento\Framework\Filesystem $filesystem,
+        \Psr\Log\LoggerInterface $logger,
+        ImageHelper $helper,
+        array $data = []
+    ) {
+        parent::__construct($filesystem, $logger, $data);
+        $this->helper = $helper;
+    }
 
     /**
      * Open image for processing
@@ -170,6 +193,24 @@ class Gd2Rewrite extends Gd2
 
         imagedestroy($watermark);
         $this->refreshImageDimensions();
+    }
+
+    /**
+     * @param string $filePath
+     * @return bool
+     * @throws FileSystemException
+     */
+    public function validateUploadFile($filePath)
+    {
+        if (!file_exists($filePath)) {
+            throw new \InvalidArgumentException('Upload file does not exist.');
+        }
+
+        if ($this->helper->isVectorImage($filePath)) {
+            return true;
+        } else {
+            return parent::validateUploadFile($filePath);
+        }
     }
 
     /**

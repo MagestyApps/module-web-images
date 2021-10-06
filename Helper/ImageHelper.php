@@ -22,6 +22,11 @@ class ImageHelper extends AbstractHelper
     public function isVectorImage($file)
     {
         $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        if (empty($extension) && file_exists($file)) {
+            $mimeType = mime_content_type($file);
+            $extension = str_replace('image/', '', $mimeType);
+        }
+
         return in_array($extension, $this->getVectorExtensions());
     }
 

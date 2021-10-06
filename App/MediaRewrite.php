@@ -55,9 +55,9 @@ class MediaRewrite extends Media
      * @param SynchronizationFactory $syncFactory
      * @param Response $response
      * @param Closure $isAllowed
-     * @param $mediaDirectory
-     * @param $configCacheFile
-     * @param $relativeFileName
+     * @param string $mediaDirectory
+     * @param string $configCacheFile
+     * @param string $relativeFileName
      * @param Filesystem $filesystem
      * @param PlaceholderFactory $placeholderFactory
      * @param State $state

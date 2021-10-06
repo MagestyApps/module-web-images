@@ -12,6 +12,7 @@ define(function () {
                 this._super();
 
                 this.allowedExtensions += ' svg';
+                this.allowedExtensions += ' webp';
             }
         });
     };

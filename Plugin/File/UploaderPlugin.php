@@ -4,12 +4,12 @@
  * See LICENSE.txt for license details.
  */
 
-namespace MagestyApps\WebImages\Plugin\Design\Backend;
+namespace MagestyApps\WebImages\Plugin\File;
 
-use Magento\Theme\Model\Design\Backend\Image;
+use Magento\MediaStorage\Model\File\Uploader;
 use MagestyApps\WebImages\Helper\ImageHelper;
 
-class ImagePlugin
+class UploaderPlugin
 {
     /**
      * @var ImageHelper
@@ -27,13 +27,13 @@ class ImagePlugin
     }
 
     /**
-     * Extend allowed extensions for theme files (logo, favicon, etc.)
+     * Add web images to the list ollowed extension for media storage
      *
-     * @param Image $subject
-     * @param $extensions
+     * @param Uploader $uploader
+     * @param array $extensions
      * @return array
      */
-    public function afterGetAllowedExtensions(Image $subject, $extensions)
+    public function beforeSetAllowedExtensions(Uploader $uploader, $extensions = [])
     {
         $extensions = array_merge(
             $extensions,
@@ -41,6 +41,6 @@ class ImagePlugin
             array_values($this->imageHelper->getWebImageExtensions())
         );
 
-        return $extensions;
+        return [$extensions];
     }
 }

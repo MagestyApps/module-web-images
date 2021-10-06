@@ -50,7 +50,7 @@ This extension for Magento 2 allows uploading SVG and WebP images in the followi
     ```
 
 ### Possible issues
-*Problem:* The image is uploaded to the servcer but not accessible in browser.
+*Problem:* An image gets uploaded to the server but not accessible in browser.
 
 *Solution:* Most likely, this is related to your nginx/apache restrictions. Please, make sure that the requested image extension is allowed by the web server configuration.
 

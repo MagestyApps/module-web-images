@@ -461,4 +461,113 @@ class Gd2Rewrite extends Gd2
 
         return $watermark;
     }
+
+    /**
+     * Create watermark.
+     *
+     * @param resource $watermark
+     * @param string $width
+     * @param string $height
+     * @return false|resource
+     */
+    private function createWaterMark($watermark, string $width, string $height)
+    {
+        $newWatermark = imagecreatetruecolor($width, $height);
+        imagealphablending($newWatermark, false);
+        $col = imagecolorallocate($newWatermark, 255, 255, 255);
+        imagecolortransparent($newWatermark, $col);
+        imagefilledrectangle($newWatermark, 0, 0, $width, $height, $col);
+        imagesavealpha($newWatermark, true);
+        imagecopyresampled(
+            $newWatermark,
+            $watermark,
+            0,
+            0,
+            0,
+            0,
+            $width,
+            $height,
+            imagesx($watermark),
+            imagesy($watermark)
+        );
+
+        return $newWatermark;
+    }
+
+    /**
+     * Fix an issue with the usage of imagecopymerge where the alpha channel is lost
+     *
+     * @param resource $dst_im
+     * @param resource $src_im
+     * @param int $dst_x
+     * @param int $dst_y
+     * @param int $src_x
+     * @param int $src_y
+     * @param int $src_w
+     * @param int $src_h
+     * @param int $pct
+     * @return bool
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     */
+    private function imagecopymergeWithAlphaFix(
+        $dst_im,
+        $src_im,
+        $dst_x,
+        $dst_y,
+        $src_x,
+        $src_y,
+        $src_w,
+        $src_h,
+        $pct
+    ) {
+        if ($pct >= 100) {
+            return imagecopy($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h);
+        }
+
+        if ($pct < 0) {
+            return false;
+        }
+
+        $sizeX = imagesx($src_im);
+        $sizeY = imagesy($src_im);
+        if (false === $sizeX || false === $sizeY) {
+            return false;
+        }
+
+        $tmpImg = imagecreatetruecolor($src_w, $src_h);
+        if (false === $tmpImg) {
+            return false;
+        }
+
+        if (false === imagealphablending($tmpImg, false)) {
+            return false;
+        }
+
+        if (false === imagesavealpha($tmpImg, true)) {
+            return false;
+        }
+
+        if (false === imagecopy($tmpImg, $src_im, 0, 0, 0, 0, $sizeX, $sizeY)) {
+            return false;
+        }
+
+        $transparency = 127 - (($pct*127)/100);
+        if (false === imagefilter($tmpImg, IMG_FILTER_COLORIZE, 0, 0, 0, $transparency)) {
+            return false;
+        }
+
+        if (false === imagealphablending($dst_im, true)) {
+            return false;
+        }
+
+        if (false === imagesavealpha($dst_im, true)) {
+            return false;
+        }
+
+        $result = imagecopy($dst_im, $tmpImg, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h);
+        imagedestroy($tmpImg);
+
+        return $result;
+    }
 }

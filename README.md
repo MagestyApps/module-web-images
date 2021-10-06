@@ -1,9 +1,11 @@
-# Upload SVG images in Magento 2
+# Upload SVG and WebP images in Magento 2
 
-This extension for Magento 2 allows uploading SVG images in the following sections:
+This extension for Magento 2 allows uploading SVG and WebP images in the following sections:
 * wysiwyg editor in static blocks and pages
-* wysiwyg editor on product edit page
 * theme logo and favicon
+* wysiwyg editor on product and category edit pages (description, summary, etc.)
+* product media gallery
+* category image uplod
 
 
 **IMPORTANT:** *if you need to upload any other image format or you need to upload it in any other Magento 2 area - please just drop us a line at [alex@magestyapps.com](mailto:alex@magestyapps.com?subject=Extend%20MagestyApps_WebImages%20extension) and we will update the extension*
@@ -14,7 +16,7 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
 
 ### Using Composer (recommended)
 1) Go to your Magento root folder
-2) Downaload the extension using composer:
+2) Download the extension using composer:
     ```
     composer require magestyapps/module-web-images
     ```
@@ -45,7 +47,13 @@ This extension for Magento 2 allows uploading SVG images in the following sectio
     php bin/magento setup:upgrade;
     php bin/magento setup:di:compile;
     php bin/magento setup:static-content:deploy -f;
-    
+    ```
+
+### Possible issues
+*Problem:* The image is uploaded to the servcer but not accessible in browser.
+
+*Solution:* Most likely, this is related to your nginx/apache restrictions. Please, make sure that the requested image extension is allowed by the web server configuration.
+
 ## Other Extensions
 You can find more useful extensions for Magento 2 by visiting [MagestyApps Official Website](https://www.magestyapps.com/)
     ```

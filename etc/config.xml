@@ -11,6 +11,7 @@
             <extensions>
                 <vector>
                     <svg>svg</svg>
+                    <svg_xml>svg+xml</svg_xml>
                 </vector>
                 <web_image>
                     <webp>webp</webp>

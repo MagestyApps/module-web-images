@@ -23,7 +23,7 @@ class Uploader extends \Magento\Framework\File\Uploader
     /**
      * Uploader constructor.
      * @param ImageHelper $imageHelper
-     * @param $fileId
+     * @param string $fileId
      * @param Mime|null $fileMime
      * @param DirectoryList|null $directoryList
      * @param DriverPool|null $driverPool
@@ -32,7 +32,7 @@ class Uploader extends \Magento\Framework\File\Uploader
      */
     public function __construct(
         ImageHelper $imageHelper,
-        $fileId,
+        string $fileId,
         Mime $fileMime = null,
         DirectoryList $directoryList = null,
         DriverPool $driverPool = null,

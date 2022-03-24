@@ -65,6 +65,10 @@
         <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\Design\Backend\ImagePlugin" />
     </type>
 
+    <type name="Magento\Swatches\Helper\Media">
+        <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\Swatches\Helper\MediaPlugin" />
+    </type>
+
     <type name="Magento\MediaGallerySynchronization\Model\CreateAssetFromFile">
         <arguments>
             <argument name="assetFactory" xsi:type="object">MagestyApps\WebImages\Model\AssetFactory</argument>

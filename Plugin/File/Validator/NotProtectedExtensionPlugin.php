@@ -31,11 +31,15 @@ class NotProtectedExtensionPlugin
      *
      * @param NotProtectedExtension $subject
      * @param $result
-     * @return mixed
+     * @return string|string[]
      */
     public function afterGetProtectedFileExtensions(NotProtectedExtension $subject, $result)
     {
         $vectorExtensions = $this->imageHelper->getVectorExtensions();
+
+        if (is_string($result)) {
+            $result = explode(',', $result);
+        }
 
         foreach (array_keys($result) as $extension) {
             if (in_array($extension, $vectorExtensions)) {

@@ -22,7 +22,7 @@
             <image>
                 <adapters>
                     <GD2>
-                        <class>MagestyApps\WebImages\Model\Image\Adapter\Gd2Rewrite</class>
+                        <class>MagestyApps\WebImages\Model\Image\Adapter\Gd2</class>
                     </GD2>
                 </adapters>
             </image>

@@ -11,8 +11,10 @@ define(function () {
             initialize: function () {
                 this._super();
 
-                this.allowedExtensions += ' svg';
-                this.allowedExtensions += ' webp';
+                if (typeof this.allowedExtensions === 'string') {
+                    this.allowedExtensions += ' svg';
+                    this.allowedExtensions += ' webp';
+                }
             }
         });
     };

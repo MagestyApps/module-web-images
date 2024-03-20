@@ -7,7 +7,8 @@ This extension for Magento 2 allows uploading SVG and WebP images in the followi
 * Wysiwyg editor
 * Theme logo and favicon
 * Product media gallery
-* Category image upload
+* Category image
+* Custom image uploader fields
 
 **IMPORTANT:** *if you need to upload any other image format or you need to upload it in any other Magento 2 area - please just drop us a line at [alex@magestyapps.com](mailto:alex@magestyapps.com?subject=Extend%20MagestyApps_WebImages%20extension) and we will update the extension*
 

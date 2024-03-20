@@ -1,3 +1,5 @@
+[![Packagist](https://img.shields.io/packagist/v/magestyapps/module-web-images.svg)](https://packagist.org/packages/magestyapps/module-web-images) [![Packagist](https://img.shields.io/packagist/dt/magestyapps/module-web-images.svg)](https://packagist.org/packages/magestyapps/module-web-images)
+
 # Upload SVG and WebP images in Magento 2
 
 This extension for Magento 2 allows uploading SVG and WebP images in the following sections:
@@ -56,4 +58,3 @@ This extension for Magento 2 allows uploading SVG and WebP images in the followi
 
 ## Other Extensions
 You can find more useful extensions for Magento 2 by visiting [MagestyApps Official Website](https://www.magestyapps.com/)
-    ```

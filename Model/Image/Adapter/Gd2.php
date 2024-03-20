@@ -9,6 +9,7 @@ namespace MagestyApps\WebImages\Model\Image\Adapter;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Image\Adapter\AbstractAdapter;
 use Magento\Framework\Phrase;
+use MagestyApps\WebImages\Helper\ImageHelper;
 
 /**
  * Gd2 adapter.
@@ -49,6 +50,28 @@ class Gd2 extends AbstractAdapter
      * @var bool
      */
     protected $_resized = false;
+
+    /**
+     * @var ImageHelper
+     */
+    private $helper;
+
+    /**
+     * @param \Magento\Framework\Filesystem $filesystem
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param ImageHelper $helper
+     * @param array $data
+     */
+    public function __construct(
+        \Magento\Framework\Filesystem $filesystem,
+        \Psr\Log\LoggerInterface $logger,
+        ImageHelper $helper,
+        array $data = []
+    ) {
+        parent::__construct($filesystem, $logger, $data);
+
+        $this->helper = $helper;
+    }
 
     /**
      * For properties reset, e.g. mimeType caching.
@@ -107,6 +130,22 @@ class Gd2 extends AbstractAdapter
         }
 
         return true;
+    }
+
+    /**
+     * @param string $filePath
+     * @return bool
+     */
+    public function validateUploadFile($filePath)
+    {
+        /*
+         * FIX: Skip validation for vector images
+         */
+        if ($this->helper->isVectorImage($filePath)) {
+            return file_exists($filePath);
+        }
+
+        return parent::validateUploadFile($filePath);
     }
 
     /**

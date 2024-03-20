@@ -7,6 +7,7 @@ This extension for Magento 2 allows uploading SVG and WebP images in the followi
 * Wysiwyg editor
 * Theme logo and favicon
 * Product media gallery
+* Attribute option swatch images
 * Category image
 * Custom image uploader fields
 

@@ -51,7 +51,7 @@
                 <item name="webp" xsi:type="string">image/webp</item>
             </argument>
         </arguments>
-    </type
+    </type>
 
     <type name="Magento\MediaStorage\App\Media">
         <plugin name="web-images-media-plugin" type="MagestyApps\WebImages\Plugin\App\MediaPlugin" />

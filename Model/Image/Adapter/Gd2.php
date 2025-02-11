@@ -416,6 +416,26 @@ class Gd2 extends AbstractAdapter
     }
 
     /**
+     * Gives true for a WebP with alpha, false otherwise
+     *
+     * @param string $filename
+     * @return bool
+     */
+    public function checkAlphaWebp($filename)
+    {
+        $buf = file_get_contents((string) $filename, false, null, 0, 25);
+        if ($buf[15] === 'L') {
+            // Simple File Format (Lossless)
+            return (bool) (!!(ord($buf[24]) & 0x00000010));
+        } elseif ($buf[15] === 'X') {
+            // Extended File Format
+            return (bool) (!!(ord($buf[20]) & 0x00000010));
+        }
+
+        return false;
+    }
+
+    /**
      * Checks if image has alpha transparency
      *
      * @param resource $imageResource
@@ -445,12 +465,18 @@ class Gd2 extends AbstractAdapter
                 return $transparentIndex;
             }
         }
-        /*
-         * FIX: added '|| IMAGETYPE_WEBP === $fileType' for the condition
-         */
-        if (IMAGETYPE_JPEG === $fileType || IMAGETYPE_WEBP === $fileType) {
+        if (IMAGETYPE_JPEG === $fileType) {
             $isTrueColor = true;
         }
+
+        /*
+        * FIX: prepare transparency data for WebP image
+        */
+        if (IMAGETYPE_WEBP === $fileType) {
+            $isTrueColor = true;
+            $isAlpha = $this->checkAlphaWebp($this->_fileName);
+        }
+
         return false;
     }
 

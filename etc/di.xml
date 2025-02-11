@@ -43,7 +43,18 @@
             </argument>
         </arguments>
     </type>
-
+    <type name="Magento\Framework\Api\ImageContentValidator">
+        <arguments>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="svg" xsi:type="string">image/svg</item>
+                <item name="svg-xml" xsi:type="string">image/svg+xml</item>
+                <item name="webp" xsi:type="string">image/webp</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Model\Product\Gallery\Processor">
+        <plugin name="web-images-gallery-processor-plugin" type="MagestyApps\WebImages\Plugin\Product\Gallery\ProcessorPlugin" />
+    </type>
     <type name="Magento\MediaStorage\App\Media">
         <plugin name="web-images-media-plugin" type="MagestyApps\WebImages\Plugin\App\MediaPlugin" />
     </type>

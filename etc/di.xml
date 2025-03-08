@@ -52,6 +52,14 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\MediaGalleryIntegration\Plugin\SaveImageInformation">
+        <arguments>
+            <argument name="imageExtensions" xsi:type="array">
+                <item name="svg" xsi:type="string">svg</item>
+                <item name="webp" xsi:type="string">webp</item>
+            </argument>
+        </arguments>
+    </type>
     <type name="Magento\Catalog\Model\Product\Gallery\Processor">
         <plugin name="web-images-gallery-processor-plugin" type="MagestyApps\WebImages\Plugin\Product\Gallery\ProcessorPlugin" />
     </type>

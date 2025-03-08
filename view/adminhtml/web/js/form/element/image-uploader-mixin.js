@@ -1,5 +1,5 @@
 /**
- * Copyright © 2021 MagestyApps. All rights reserved.
+ * Copyright © MagestyApps. All rights reserved.
  * See LICENSE.txt for license details.
  */
 

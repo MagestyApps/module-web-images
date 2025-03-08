@@ -2,7 +2,8 @@
     "name": "magestyapps/module-web-images",
     "description": "Upload SVG and WebP images in Magento 2",
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=7.4",
+        "magento/module-backend": ">=102.0.7"
     },
     "type": "magento2-module",
     "version": "1.2.0",

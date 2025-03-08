@@ -15,13 +15,27 @@ This extension for Magento 2 allows uploading SVG and WebP images in the followi
 
 **IMPORTANT:** *if you like the extension, could you please add a star to this GitHub repository in the top right corner. This is really important for us. Thanks.*
 
+## Magento Version Compatibility
+| Supported Magento Version | Compatible Module Version |
+|---------------------------|---------------------------|
+| 2.4.7                     | 1.2.*                     |
+| 2.4.6                     | 1.1.*                     |
+| 2.4.5                     | 1.1.*                     |
+| 2.4.4 or older            | Not supported             |
+
 ## Installation
 
 ### Using Composer (recommended)
 1) Go to your Magento root folder
 2) Download the extension using composer:
+
+    *For Magento 2.4.7 or newer:*
     ```
     composer require magestyapps/module-web-images
+    ```
+   *For Magento 2.4.5 or 2.4.6:*
+    ```
+    composer require magestyapps/module-web-images:^1.1
     ```
 3) Run setup commands:
 
@@ -56,6 +70,3 @@ This extension for Magento 2 allows uploading SVG and WebP images in the followi
 *Problem:* An image gets uploaded to the server but not accessible in browser.
 
 *Solution:* Most likely, this is related to your nginx/apache restrictions. Please, make sure that the requested image extension is allowed by the web server configuration.
-
-## Other Extensions
-You can find more useful extensions for Magento 2 by visiting [MagestyApps Official Website](https://www.magestyapps.com/)

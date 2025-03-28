@@ -81,7 +81,6 @@
     <type name="Magento\Cms\Controller\Adminhtml\Wysiwyg\Directive">
         <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\Controller\Adminhtml\Wysiwyg\DirectivePlugin" />
     </type>
-
     <type name="Magento\Theme\Model\Design\Backend\Logo">
         <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\Design\Backend\ImagePlugin" />
     </type>
@@ -91,11 +90,9 @@
     <type name="Magento\Theme\Model\Design\Backend\Image">
         <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\Design\Backend\ImagePlugin" />
     </type>
-
     <type name="Magento\Swatches\Helper\Media">
         <plugin name="allow-web-images" type="MagestyApps\WebImages\Plugin\Swatches\Helper\MediaPlugin" />
     </type>
-
     <type name="Magento\MediaGallerySynchronization\Model\CreateAssetFromFile">
         <arguments>
             <argument name="assetFactory" xsi:type="object">MagestyApps\WebImages\Model\AssetFactory</argument>
@@ -106,4 +103,5 @@
             <argument name="uploaderFactory" xsi:type="object">MagestyApps\WebImages\Model\File\UploaderFactory</argument>
         </arguments>
     </type>
+    <preference for="Magento\Framework\Api\ImageContentValidatorInterface" type="MagestyApps\WebImages\Model\Api\MediaContentValidator"/>
 </config>

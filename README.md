@@ -18,6 +18,7 @@ This extension for Magento 2 allows uploading SVG and WebP images in the followi
 ## Magento Version Compatibility
 | Supported Magento Version | Compatible Module Version |
 |---------------------------|---------------------------|
+| 2.4.8                     | 1.2.*                     |
 | 2.4.7                     | 1.2.*                     |
 | 2.4.6                     | 1.1.*                     |
 | 2.4.5                     | 1.1.*                     |

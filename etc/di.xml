@@ -106,4 +106,8 @@
             <argument name="uploaderFactory" xsi:type="object">MagestyApps\WebImages\Model\File\UploaderFactory</argument>
         </arguments>
     </type>
+
+    <type name="Hyva\Theme\Model\InjectImageDimensions">
+        <plugin name="skip-adding-dimensions-for-vector-images" type="MagestyApps\WebImages\Plugin\Hyva\Theme\Model\InjectImageDimensionsPlugin" />
+    </type>
 </config>

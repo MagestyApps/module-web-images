@@ -34,8 +34,12 @@ class InjectImageDimensionsPlugin
      * @param string $src
      * @return string
      */
-    public function aroundInjectNativeDimensionsToImgTag(InjectImageDimensions $subject, callable $proceed, string $imgTag, string $src): string
-    {
+    public function aroundInjectNativeDimensionsToImgTag(
+        InjectImageDimensions $subject,
+        callable $proceed,
+        string $imgTag,
+        string $src
+    ): string {
         if ($this->helper->isVectorImage($src)) {
             return '';
         }

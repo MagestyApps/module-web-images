@@ -3,7 +3,8 @@
     "description": "Upload SVG and WebP images in Magento 2",
     "require": {
         "php": ">=7.4",
-        "magento/module-backend": ">=102.0.7"
+        "magento/module-backend": ">=102.0.7",
+        "hyva-themes/magento2-theme-module": "^1.3.10"
     },
     "type": "magento2-module",
     "version": "1.2.1",

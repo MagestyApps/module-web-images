@@ -6,7 +6,6 @@
 
 namespace MagestyApps\WebImages\Plugin\Hyva\Theme\Model;
 
-use Hyva\Theme\Model\InjectImageDimensions;
 use MagestyApps\WebImages\Helper\ImageHelper;
 
 class InjectImageDimensionsPlugin
@@ -28,14 +27,18 @@ class InjectImageDimensionsPlugin
     /**
      * Skip adding image dimensions for SVG images
      *
-     * @param InjectImageDimensions $subject
+     * @param object $subject
      * @param callable $proceed
      * @param string $imgTag
      * @param string $src
      * @return string
      */
-    public function aroundInjectNativeDimensionsToImgTag(InjectImageDimensions $subject, callable $proceed, string $imgTag, string $src): string
-    {
+    public function aroundInjectNativeDimensionsToImgTag(
+        object $subject,
+        callable $proceed,
+        string $imgTag,
+        string $src
+    ): string {
         if ($this->helper->isVectorImage($src)) {
             return '';
         }
